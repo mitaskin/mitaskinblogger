@@ -3,6 +3,8 @@ import { CssBaseline, Container, Grid, AppBar, Toolbar, Typography, Button, Icon
 import PenIcon from "@material-ui/icons/Create";
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import PostsList from './components/PostsList';
+import { useState } from 'react';
+import { AddPostForm } from './components/AddPostForm.jsx';
 
 
 const useStyle = makeStyles((theme) => ({
@@ -23,6 +25,20 @@ const useStyle = makeStyles((theme) => ({
 const App = () => {
   console.log("Client/src/App.js Çalıştı");
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
+
+
+
+
   const classes = useStyle();
 
   return (
@@ -36,7 +52,7 @@ const App = () => {
             <Typography variant='h6' color="secondary" className={classes.title}>
               <a href="http://localhost:3000/posts">Blogify</a>
             </Typography>
-            <Button color='primary' variant='outlined' startIcon={<PenIcon />}>
+            <Button color='primary' variant='outlined' startIcon={<PenIcon />} onClick={handleOpen}>
               Yeni Yazı
             </Button>
 
@@ -47,15 +63,16 @@ const App = () => {
           <Grid item xs={12}>
             <Router>
               <Routes>
-                <Route exact path='/posts' element={<PostsList/>} />
-                <Route exact path='/*' element={<Navigate to="/posts"/>} />
+                <Route exact path='/posts' element={<PostsList />} />
+                <Route exact path='/*' element={<Navigate to="/posts" />} />
               </Routes>
-              
-              {/* <Redirect from="/" to="/posts" /> */}
             </Router>
           </Grid>
         </Grid>
       </Container>
+
+      <AddPostForm open={open} handleClose={handleClose} />
+
     </>
   )
 }
