@@ -1,27 +1,36 @@
 import React from "react";
-import { CssBaseline, Container, Grid, AppBar, Toolbar, Typography, Button, IconButton, makeStyles } from "@material-ui/core";
-import { useState } from 'react';
-
+import {
+  CssBaseline,
+  Container,
+  Grid,
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  makeStyles,
+} from "@material-ui/core";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const useStyle = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+    container: {
+      marginTop: theme.spacing(2),
+    },
+  }));
 
-    const useStyle = makeStyles((theme) => ({
-        root: {
-            flexGrow: 1,
-        },
-        menuButton: {
-            marginRight: theme.spacing(2),
-        },
-        title: {
-            flexGrow: 1,
-        },
-        container: {
-            marginTop: theme.spacing(2),
-        },
-    }));
-
-    const classes = useStyle();
-    const [open, setOpen] = useState(false);
+  const classes = useStyle();
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -39,37 +48,31 @@ const Header = () => {
             <a href="http://localhost:3000/posts">Blogify</a>
           </Typography>
 
-          <Button
-            color="primary"
-            variant="outlined"
-            onClick={() => setOpen(true)}
-          >
-            Ana Sayfa
-          </Button>
+        
 
-          <Button
-            color="primary"
-            variant="outlined"
-            onClick={() => setOpen(true)}
-          >
-            Hakkımda
-          </Button>
+            <Button color="primary" variant="outlined" onClick="/about">
+              Ana Sayfa
+            </Button>
+          
 
-          <Button
-            color="primary"
-            variant="outlined"
-            onClick={() => setOpen(true)}
-          >
-            İletişim
-          </Button>
+         
+            <Button color="primary" variant="outlined">
+              Hakkımda
+            </Button>
+         
 
-          <Button
-            color="primary"
-            variant="outlined"
-            onClick={() => setOpen(true)}
-          >
-            Yeni Yazı
-          </Button>
+            <Button color="primary" variant="outlined">
+              İletişim
+            </Button>
+        
+
+            <Button
+              color="primary"
+              variant="outlined"
+            >
+              Yeni Yazı
+            </Button>
+          
         </Toolbar>
       </AppBar>
     </>
