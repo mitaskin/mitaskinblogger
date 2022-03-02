@@ -44,7 +44,7 @@ const MainLayout = (props) => {
                     </Button>
 
                     <Button color='primary' variant='outlined'  onClick={() => setOpen(true)}>
-                        Yazılar
+                        İletişim
                     </Button>
 
                     <Button color='primary' variant='outlined'  onClick={() => setOpen(true)}>
