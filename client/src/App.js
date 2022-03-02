@@ -17,10 +17,9 @@ const App = () => {
 
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<MainLayout />}>
-            <Route path='/About' element={<AboutLayout />} />
-            <Route path='/Contact' element={<ContactLayout />} />
-          </Route>
+          <Route path='/' element={<MainLayout />} />
+          <Route path='/About' element={<AboutLayout />} />
+          <Route path='/Contact' element={<ContactLayout />} />
           <Route
             path="*"
             element={

@@ -10,6 +10,7 @@ import {
   IconButton,
   makeStyles,
 } from "@material-ui/core";
+import SendIcon from '@mui/icons-material/Send';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -34,41 +35,36 @@ const Header = () => {
 
   return (
     <>
-      <AppBar position="static" color="inherit" elevation={0}>
+      <AppBar position="static" color="inherit" elevation={3}>
         <Toolbar>
-          <div>Header</div>
-
-          <IconButton
+            <IconButton
             edge="start"
             className={classes.container}
             color="inherit"
           />
 
           <Typography variant="h6" color="secondary" className={classes.title}>
-            <a href="http://localhost:3000/posts">Blogify</a>
+            <a href="http://localhost:3000/posts">mi.taskin</a>
           </Typography>
 
-        
 
-            <Button color="primary" variant="outlined" onClick="/about">
+
+            <Button color="primary" variant="outlined" href="/">
               Ana Sayfa
             </Button>
-          
-
-         
-            <Button color="primary" variant="outlined">
+               
+            <Button color="primary" variant="outlined" href="/About">
               Hakkımda
             </Button>
          
-
-            <Button color="primary" variant="outlined">
+            <Button color="primary" variant="outlined" href="/Contact">
               İletişim
             </Button>
         
-
             <Button
               color="primary"
-              variant="outlined"
+              variant="contained"
+              endIcon={<SendIcon />}
             >
               Yeni Yazı
             </Button>
