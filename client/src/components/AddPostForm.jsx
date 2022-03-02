@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { makeStyles } from "@material-ui/core";
 import {
   Button,
@@ -35,14 +35,16 @@ const postSchema = yup.object().shape({
   tag: yup.mixed().oneOf(tags),
 });
 
-export const AddPostForm = ({ open, handleClose }) => {
+const AddPostForm = () => {
+      const [open, setOpen] = useState(false);
+
   const { register, handleSubmit, control, errors, reset } = useForm({
     resolver: yupResolver(postSchema),
   });
   const classes = useStyle();
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={open}>
       <DialogTitle>Yeni Yazı Oluştur.</DialogTitle>
       <DialogContent>
         <DialogContentText>
@@ -106,7 +108,7 @@ export const AddPostForm = ({ open, handleClose }) => {
               size="small"
               //  error={errors.content ? true : false}
               inputRef={register}
-              fullWidth
+
             />
           </form>
         </div>

@@ -4,7 +4,7 @@ import PenIcon from "@material-ui/icons/Create";
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import PostsList from './components/PostsList';
 import { useState } from 'react';
-import { AddPostForm } from './components/AddPostForm.jsx';
+import  AddPostForm  from './components/AddPostForm.jsx';
 
 
 const useStyle = makeStyles((theme) => ({
@@ -27,14 +27,9 @@ const App = () => {
 
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  }
-
   const handleClose = () => {
     setOpen(false);
   }
-
 
 
 
@@ -52,7 +47,7 @@ const App = () => {
             <Typography variant='h6' color="secondary" className={classes.title}>
               <a href="http://localhost:3000/posts">Blogify</a>
             </Typography>
-            <Button color='primary' variant='outlined' startIcon={<PenIcon />} onClick={handleOpen}>
+            <Button color='primary' variant='outlined' startIcon={<PenIcon />} onClick={()=>setOpen(true)}>
               Yeni Yazı
             </Button>
 
@@ -71,7 +66,7 @@ const App = () => {
         </Grid>
       </Container>
 
-      <AddPostForm open={open} handleClose={handleClose} />
+      <AddPostForm open={open} />
 
     </>
   )
