@@ -10,9 +10,10 @@ import {
   IconButton,
   makeStyles,
 } from "@material-ui/core";
-import SendIcon from '@mui/icons-material/Send';
+import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import AddPost from "./AddPost";
 
 const Header = () => {
   const useStyle = makeStyles((theme) => ({
@@ -31,13 +32,15 @@ const Header = () => {
   }));
 
   const classes = useStyle();
-  const [open, setOpen] = useState(false);
+  let [addPost, setShowAddPost] = useState(false);
 
   return (
     <>
-      <AppBar position="static" color="inherit" elevation={3}>
+      {addPost && <AddPost/>}
+
+      <AppBar position="static" color="inherit" elevation={5} sx={{ boxShadow: 3, m:5}} >
         <Toolbar>
-            <IconButton
+          <IconButton
             edge="start"
             className={classes.container}
             color="inherit"
@@ -47,28 +50,27 @@ const Header = () => {
             <a href="http://localhost:3000/posts">mi.taskin</a>
           </Typography>
 
+          <Button color="primary" variant="outlined" href="/" className={classes.menuButton}>
+            Ana Sayfa
+          </Button>
 
+          <Button color="primary" variant="outlined" href="/About" className={classes.menuButton}>
+            Hakkımda
+          </Button>
 
-            <Button color="primary" variant="outlined" href="/">
-              Ana Sayfa
-            </Button>
-               
-            <Button color="primary" variant="outlined" href="/About">
-              Hakkımda
-            </Button>
-         
-            <Button color="primary" variant="outlined" href="/Contact">
-              İletişim
-            </Button>
-        
-            <Button
-              color="primary"
-              variant="contained"
-              endIcon={<SendIcon />}
-            >
-              Yeni Yazı
-            </Button>
-          
+          <Button color="primary" variant="outlined" href="/Contact" className={classes.menuButton}>
+            İletişim
+          </Button>
+
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={() => setShowAddPost(true)}
+            endIcon={<SendIcon />}
+            className={classes.menuButton}
+          >
+            Yeni Yazı
+          </Button>
         </Toolbar>
       </AppBar>
     </>

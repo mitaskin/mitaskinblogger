@@ -9,7 +9,9 @@ import { Box } from '@mui/system';
 
 export default function ImgMediaCard() {
   return (
-    <Box sx={{ display: 'flex' ,justifyContent: 'space-evenly' }}>
+    
+
+<Box sx={{ display: 'flex' ,justifyContent: 'space-evenly' , mt:4}}>
       <Box>
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
@@ -82,9 +84,32 @@ export default function ImgMediaCard() {
         </Card>
       </Box>
 
+
+      <Box>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            component="img"
+            alt="green iguana"
+            height="500"
+            image="https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              M.ikbal TAŞKIN
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lizards are a widespread group of squamate reptiles, with over 6,000
+              species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </Card>
+      </Box>
+
     </Box>
-
-
 
 
   );

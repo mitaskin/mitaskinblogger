@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import postRoutes from "./routes/posts.js";
+import Post from "./models/posts.js";
 
 const app = express(); //Express Server Oluşturduk.
 dotenv.config();
@@ -19,11 +20,12 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 //uzaktaki bir sunucuya göndereceğimiz http  paketlerinde sorun yaşanmaması amaçı ile yapıldı
 app.use(cors());
 
-app.get("/", (req, res) => {
-    
+app.post("/add", (req, res) => {
+
     res.json({
-        author: "codding with mitaskin :)",
+        author: "codding :)",
         message: "Mutlu Yıllar!",
+        title: "deneme başlık"
     });
 
 });
